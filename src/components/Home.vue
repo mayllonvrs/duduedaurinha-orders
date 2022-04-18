@@ -29,7 +29,6 @@
     import moment from 'moment'
     import {useRouter} from "vue-router";
     import Paginate from "./Paginate.vue";
-    // import router from '@/router';
 
     export default {
     name: "Orders",
@@ -79,7 +78,8 @@
         },
         showOrder(id) {
             window.history.pushState({}, "", `/?limit=${this.limit}&page=${this.page}`);
-            window.location.href = window.location.href.split("?")[0]+'?id='+id
+            console.log(window.location.href)
+            // window.location.href = window.location.href.split("?")[0]+'?id='+id
         }
     },
     components: { Paginate }
