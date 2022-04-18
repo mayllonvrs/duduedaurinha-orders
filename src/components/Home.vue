@@ -4,6 +4,7 @@
     </div>
     <div class="home w-full md:w-30 text-gray-700">
         <div class="w-full">
+            <Paginate :count="count" :limit="limit" :currentPage="page"/>
             <table class="w-full">
                 <thead class="bg-gray-200">
                     <tr>
@@ -26,8 +27,8 @@
 <script>
     import axios from "axios"
     import moment from 'moment'
-    // import {useRouter} from "vue-router";
-    // import Paginate from "@/components/Paginate.vue"
+    import {useRouter} from "vue-router";
+    import Paginate from "./Paginate.vue";
     // import router from '@/router';
 
     export default {
@@ -45,23 +46,23 @@
     },
     methods: {
         getOrders() {
-            var page = 1
-            var limit = 10
-            // if(!!Number(useRouter().currentRoute.value.query.limit)){
-            //     limit = Number(useRouter().currentRoute.value.query.limit)
-            // }
-            // if(!!Number(useRouter().currentRoute.value.query.page)){
-            //     page = Number(useRouter().currentRoute.value.query.page)
-            // }
+            var page = 1;
+            var limit = 10;
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            if (urlParams.get("limit")) {
+                limit = urlParams.get("limit");
+            }
+            if (urlParams.get("page")) {
+                page = urlParams.get("page");
+            }
             axios
                 .get(`http://45.80.153.95:30000/orders?limit=${limit}&page=${page}`)
-                // .get(`http://localhost:30000/orders?limit=${limit}&page=${page}`)
                 .then((res) => {
                 this.orders = res.data.orders;
                 this.count = res.data.count;
                 this.limit = limit;
                 this.page = page;
-
             })
                 .catch((error) => {
                 console.log(error);
@@ -76,11 +77,12 @@
             let val = (value / 1).toFixed(2).replace(".", ",");
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         },
-        showOrder(id){
-            window.history.pushState({}, '', `/?limit=${this.limit}&page=${this.page}`);
-            // router.replace(`/order?id=${id}`)
+        showOrder(id) {
+            window.history.pushState({}, "", `/?limit=${this.limit}&page=${this.page}`);
+            console.log(id);
+            // \\router.replace(`/order?id=${id}`)
         }
     },
-    // components: { Paginate }
+    components: { Paginate }
 }
 </script>
