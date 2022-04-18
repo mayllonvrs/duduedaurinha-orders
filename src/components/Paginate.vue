@@ -73,20 +73,20 @@
                 return Array.from({ length }, (_, i) => start + i);
             },
             changeLimit(event){
-                window.location.href = '/?limit='+event.target.value
+                window.location.href = '?limit='+event.target.value
             },
             changePage(event){
-                window.location.href = '/?limit='+document.querySelector("#limit").value+
+                window.location.href = '?limit='+document.querySelector("#limit").value+
                                         '&page='+event.target.value
             },
             previous(){
                 const page = document.querySelector("#page").value-1
-                window.location.href = '/?limit='+document.querySelector("#limit").value+
+                window.location.href = '?limit='+document.querySelector("#limit").value+
                                         '&page='+page
             },
             next(){
                 const page = parseInt(document.querySelector("#page").value)+1
-                window.location.href = '/?limit='+document.querySelector("#limit").value+
+                window.location.href = '?limit='+document.querySelector("#limit").value+
                                         '&page='+page
             }
         },
