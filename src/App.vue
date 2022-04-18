@@ -1,12 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Home from "./components/Home.vue";
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <div class="container grid justify-items-center bg-gray-100 rounded-lg p-1 md:p-10">
+    <Home />
+  </div>
 </template>
 
 <style>
