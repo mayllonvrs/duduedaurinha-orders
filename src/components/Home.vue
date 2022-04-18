@@ -78,8 +78,7 @@
         },
         showOrder(id) {
             window.history.pushState({}, "", `?limit=${this.limit}&page=${this.page}`);
-            console.log(window.location.href)
-            // window.location.href = window.location.href.split("?")[0]+'?id='+id
+            window.location.href = window.location.href.split("?")[0]+'?id='+id
         }
     },
     components: { Paginate }
