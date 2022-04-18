@@ -77,7 +77,7 @@
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         },
         showOrder(id) {
-            window.history.pushState({}, "", `/?limit=${this.limit}&page=${this.page}`);
+            window.history.pushState({}, "", `?limit=${this.limit}&page=${this.page}`);
             console.log(window.location.href)
             // window.location.href = window.location.href.split("?")[0]+'?id='+id
         }
