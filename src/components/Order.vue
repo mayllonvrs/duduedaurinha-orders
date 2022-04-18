@@ -1,6 +1,6 @@
 <template>
     <div class="order w-full">
-        <table class="text-left text-sm md:text-md w-full mx-5 md:w-1/2 mb-2">
+        <table class="text-left text-sm md:text-md w-full mx-5 mb-2">
             <tr>
                 <td rowspan="5" class="w-1/6">
                     <img src="https://raw.githubusercontent.com/mayllonvrs/duduedaurinha-assets/master/logo-duduedaurinha-240.png" alt="Logo dudu e Daurinha" class="w-20">
@@ -23,7 +23,7 @@
                 <td><span class="font-bold">Cidade: </span>{{order.client.city}}/{{order.client.state}}</td>
             </tr>
             <tr v-if="order.observations">
-                <td>
+                <td colspan="3">
                     <span class="font-bold">Observações: </span> {{ order.observations }}
                 </td>
             </tr>
@@ -31,7 +31,7 @@
         <div class="font-bold pb-3">Itens do pedido</div>
         <div v-for="product in order.products" :key="product._id" class="border border-gray-400 rounded-md mb-2">
             <p class="pl-2 font-bold text-left">{{ product.reference }} -  {{ product.name }}</p>
-            <table class="w-full text-center">
+            <table class="w-full text-center e">
                 <thead>
                     <tr class="border-y border-gray-400">
                         <th class="w-5/12">Código - Tamanho</th>
@@ -83,3 +83,13 @@
         }
     }
 </script>
+<style>
+    @media print {
+    .nobreak { 
+        display: block;
+        width: 100%;
+     }
+
+    .avoid{ page-break-inside: avoid; }
+}
+</style>
