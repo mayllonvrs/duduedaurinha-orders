@@ -56,7 +56,7 @@
                 page = urlParams.get("page");
             }
             axios
-                .get(`http://45.80.153.95:30000/orders?limit=${limit}&page=${page}`)
+                .get(`http://82.180.136.47:30000/orders?limit=${limit}&page=${page}`)
                 .then((res) => {
                 this.orders = res.data.orders;
                 this.count = res.data.count;
