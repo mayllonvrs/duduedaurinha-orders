@@ -20,8 +20,12 @@
             </tr>
             <tr>
                 <td><span class="font-bold">Hora:</span> {{format_hour(order.createdAt)}}</td>
-                <td><span class="font-bold">Cidade: </span>{{order.client.city}}/{{order.client.state}}</td>
+                <td>
+                    <span class="font-bold">Cidade: </span>{{order.client.city}}/{{order.client.state}} <br>
+                    <span class="font-bold">CEP: </span> {{order.client.cep}}
+                </td>
             </tr>
+
             <tr v-if="order.observations">
                 <td colspan="3">
                     <span class="font-bold">Observações: </span> {{ order.observations }}
