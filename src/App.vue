@@ -29,7 +29,7 @@ import Order from "./components/Order.vue";
         this.hasId = !!urlParams.get("id")
         if (this.hasId) {
           axios
-              .get(`http://45.80.153.95:30000/orders/${urlParams.get("id")}`)
+              .get(`http://82.180.136.47:30000/orders/${urlParams.get("id")}`)
               .then((res) => {
               this.order = res.data
           })
